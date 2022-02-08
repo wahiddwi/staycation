@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'; //sortcat => 
 
 import "assets/scss/style.scss";
 import LandingPages from 'pages/LandingPages';
+import DetailsPage from 'pages/DetailsPage';
 import Example from 'pages/Example';
 
 const history = createBrowserHistory({
@@ -13,8 +14,9 @@ const history = createBrowserHistory({
 function App() {
   return <div className="App">
       <Router history={history}>
-        <Route exact path="/" component={LandingPages}></Route>
-        <Route path="/example" component={Example}></Route>
+        <Route exact path="/" component={LandingPages} />
+        <Route exact path="/properties/:id" component={DetailsPage} />
+        <Route path="/example" component={Example} />
       </Router>
     </div>;
 }

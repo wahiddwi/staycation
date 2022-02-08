@@ -15,7 +15,7 @@ export default function Date(props) {
     const { value, placeholder, name } = props;
     const [isShowed, setIsShowed] = useState(false);
 
-    const datePickerChange = value => {
+    const datePickerChange = (value) => {
         const target = {
             target: {
                 value: value.selection,
@@ -34,7 +34,7 @@ export default function Date(props) {
     });
 
     const refDate = useRef(null);
-    const handleCLickOutside = event => {
+    const handleCLickOutside = (event) => {
         if (refDate && !refDate.current.contains(event.target)) {
             setIsShowed(false);
         }
@@ -89,5 +89,3 @@ Date.propTypes = {
     placeholder: propTypes.string,
     outerClassName: propTypes.string 
 };
-
-
