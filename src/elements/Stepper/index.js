@@ -1,40 +1,38 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
 
-import propTypes from "prop-types";
+import propTypes from 'prop-types';
 
 export default function Stepper(props) {
-    
-    //destructor props
-  const { steps, initialStep } = props;
-  //constanta stepKeys => untuk merubah object menjadi bentuk array dari key props steps
-  const stepKeys = Object.keys(steps);
 
-  const [CurrentStep, setCurrentStep] = useState(
-      stepKeys.indexOf(initialStep) > -1 ? initialStep : stepKeys[0]
-  );
-  const totalStep = stepKeys.length;
-  const indexStep = stepKeys.indexOf(CurrentStep);
+	const {steps, initialStep} = props;
+	const stepskeys = Object.keys(steps);
 
-  //validasi step
-  function prevStep() {
-      //jika indexStep > lebih dari 0, maka setCurrentStep dari nilai stepKeys lalu mencari index -1
-      if (+indexStep > 0) setCurrentStep(stepKeys[indexStep - 1]);
-  }
+	const [CurrentStep, setCurrentStep] = useState(
+		stepskeys.indexOf(initialStep) > -1 ? initialStep : stepskeys[0]
+	);
 
-  function nextStep() {
-      if (+indexStep < totalStep) setCurrentStep(stepKeys[indexStep + 1]);
-  }
+	const totalStep = stepskeys.length;
+	const indexStep = stepskeys.indexOf(CurrentStep);
 
-    return (
-        <>
-            {
-                props.children(prevStep, nextStep, CurrentStep, steps)
-            }
-        </>
-    );
+	function prevStep() {
+		if (+indexStep > 0)
+		setCurrentStep(stepskeys[indexStep - 1]);
+	}
+
+	function nextStep() {
+		if (+indexStep < totalStep)
+		setCurrentStep(stepskeys[indexStep + 1]);
+	}
+  
+	return <>{props.children(prevStep, nextStep, CurrentStep, steps)}</>;
 }
 
-Stepper.propTypes = {
-    data: propTypes.object.isRequired,
-    initialStep: propTypes.string,
-};
+Stepper.steps = {
+	data: propTypes.object.isRequired,
+	initialStep: propTypes.string,
+}
+
+export { default as Numbering } from "./Numbering";
+export { default as Meta } from "./Meta";
+export { default as Controller } from "./Controller";
+export { default as MainContent } from "./MainContent";

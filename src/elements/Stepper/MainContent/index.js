@@ -1,15 +1,6 @@
-import React from 'react'
+import React from "react";
 
-import Fade from "react-reveal";
-
-export default function MainContent({ data, current }) {
-  return (
-
-    <Fade>
-        {
-            data[current] && data[current].content
-        }
-    </Fade>
-
-  );
+import Fade from "react-reveal/Fade";
+export default function MainContent({data, current}) {
+  return <Fade>{data[current] && data[current].content}</Fade>;
 }
