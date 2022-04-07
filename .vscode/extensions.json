@@ -3,6 +3,6 @@
         "abusaidm.html-snippets",
         "coenraads.bracket-pair-colorizer",
         "formulahendry.auto-rename-tag",
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
     ]
 }
